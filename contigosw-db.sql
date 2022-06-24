@@ -3,7 +3,6 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 27-10-2020 a las 22:37:03
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.4.5
 
@@ -57,7 +56,7 @@ CREATE TABLE `inicio_asistente` (
 --
 
 INSERT INTO `inicio_asistente` (`id`, `usuario`, `contraseña`) VALUES
-(1, 'usuario@gmail.com', '1234');
+(1, 'asistente@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -212,7 +211,33 @@ CREATE TABLE `tipo_jornada` (
 INSERT INTO `tipo_jornada` (`id`, `nombre`) VALUES
 (1, 'A.M'),
 (2, 'P.M');
+--
+-- Estructura de tabla para la tabla `hijos`
+--
 
+CREATE TABLE `hijos` (
+  
+  `nombre` varchar(50) NOT NULL,
+  `tipo_sexo_id` int(11) NOT NULL,
+  `rut` varchar(50) NOT NULL,
+  `alergico` varchar(50) NOT NULL,
+  `diagnostico` varchar(50) NOT NULL,
+  `fecha_cita` varchar(50) NOT NULL,
+  `padre_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `hijos`
+--
+
+INSERT INTO `hijos` (`nombre`,  `tipo_sexo_id`,  `rut`,   `alergico`,      `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
+                    ('Sebastián',     2,      '202020',   'Dipirona',        'Pulmonia',        '30-10-2021',    '10346826136'),
+                    ('Juan',          2,      '202202',   'Polen',           'Dolor Estomacal',  '4-10-2021',    '10346826136'),
+                    ('Rosa',          1,      '232323',   'Aspirina',        'Vomitos',         '30-05-2022',    '10346826136'),
+                    ('Maria',         1,      '242424',   'no',              'Resfrio',         '30-04-2021',     '1193462497'),
+                    ('Daniel',        2,      '252525',   'Frutas Citricas', 'Dolor de cabeza', '30-03-2022',     '1193462497');
+
+-- --------------------------------------------------------
 --
 -- Índices para tablas volcadas
 --
@@ -238,6 +263,11 @@ ALTER TABLE `ordenes_citas`
   ADD UNIQUE KEY `cor` (`correo`),
   ADD KEY `FK_tipo` (`tipo_cita_id`);
 
+-- Indices de la tabla `hijos`
+--
+ALTER TABLE `hijos`
+   ADD PRIMARY KEY (`padre_id`);
+  
 --
 -- Indices de la tabla `registro_doctores`
 --
@@ -296,7 +326,11 @@ ALTER TABLE `registro_doctores`
 --
 ALTER TABLE `registro_paciente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+--
+-- AUTO_INCREMENT de la tabla `hijos`
+--
+ALTER TABLE `hijos`
+  MODIFY `padre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `tipo_cita`
 --
@@ -331,6 +365,10 @@ ALTER TABLE `ordenes_citas`
 ALTER TABLE `registro_doctores`
   ADD CONSTRAINT `FK_doctores` FOREIGN KEY (`tipo_cita_id`) REFERENCES `tipo_cita` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
   
+  -- Filtros para la tabla `hijos`
+--
+ALTER TABLE `hijos`
+  ADD CONSTRAINT `FK_hijos` FOREIGN KEY (`tipo_sexo_id`) REFERENCES `tipo_sexo` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 --
 -- Filtros para la tabla `registro_paciente`
 --
