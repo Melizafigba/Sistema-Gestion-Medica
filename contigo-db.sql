@@ -3,6 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 27-10-2020 a las 22:37:03
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.4.5
 
@@ -11,12 +12,14 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+
 --
--- Base de datos: `contigosw`
+-- Base de datos: `contigo`
 --
 
 -- --------------------------------------------------------

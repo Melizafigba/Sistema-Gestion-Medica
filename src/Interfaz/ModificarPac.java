@@ -101,6 +101,7 @@ public class ModificarPac extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jActualizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jeditar.setText("Editar");
         jeditar.addActionListener(new java.awt.event.ActionListener() {
@@ -246,6 +247,14 @@ public class ModificarPac extends javax.swing.JFrame {
         jLabel4.setOpaque(true);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 120, 30));
 
+        jButton2.setText("Crear Ficha");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 820, 720));
 
         pack();
@@ -317,6 +326,12 @@ public class ModificarPac extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jActualizar
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CrearFicha cficha = new CrearFicha();
+        cficha.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 //    /**
 //     * @param args the command line arguments
 //     */
@@ -361,6 +376,7 @@ public class ModificarPac extends javax.swing.JFrame {
     private javax.swing.JTable iDatos1;
     private javax.swing.JButton jActualizar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
