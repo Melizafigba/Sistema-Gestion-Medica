@@ -233,12 +233,12 @@ CREATE TABLE `hijos` (
 -- Volcado de datos para la tabla `hijos`
 --
 
-INSERT INTO `hijos` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,   `rut`,          `alergico`,        `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
-                    (0,     'Sebastián',     'Obando',        2,       '202020',        ' Dipirona',           'Pulmonia',       '30-10-2021',    '10346826136'),
-                    (1,          'Juan',    'Quezada',        2,       '202202',            'Polen',    'Dolor Estomacal',        '4-10-2021',    '10346826136'),
-                    (2,          'Rosa',       'Lara',        1,       '232323',         'Aspirina',            'Vomitos',       '30-05-2022',    '10346826136'),
-                    (3,         'Maria',      'Suarez,       '1,       '242424',               'no',            'Resfrio',       '30-04-2021',     '1193462497'),
-                    (4,        'Daniel',    'Gonzalez,       '2,       '252525',  'Frutas Citricas',    'Dolor de cabeza',       '30-03-2022',     '1193462497');
+INSERT INTO `hijos` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,    `rut`,          `alergico`,        `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
+                    (0,     'Sebastián',     'Obando',        2,       '202020',         ' Dipirona',           'Pulmonia',       '30-10-2021',    '10346826136'),
+                    (1,          'Juan',    'Quezada',        2,       '202202',             'Polen',    'Dolor Estomacal',        '4-10-2021',    '10346826136'),
+                    (2,          'Rosa',       'Lara',        1,       '232323',          'Aspirina',            'Vomitos',       '30-05-2022',    '10346826136'),
+                    (3,         'Maria',     'Suarez',        1,       '242424',                'no',            'Resfrio',       '30-04-2021',     '1193462497'),
+                    (4,        'Daniel',    'Gonzalez',       2,       '252525',   'Frutas Citricas',    'Dolor de cabeza',       '30-03-2022',     '1193462497');
 
 -- --------------------------------------------------------
 --
