@@ -103,7 +103,7 @@ Conexion funcion = new Conexion ();
         jPanel1.add(Complete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 280, 50));
 
         NameComplete.setForeground(new java.awt.Color(105, 111, 121));
-        NameComplete.setText("Nombre completo*");
+        NameComplete.setText("Nombre*");
         jPanel1.add(NameComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         jnombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

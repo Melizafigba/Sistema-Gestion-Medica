@@ -31,7 +31,7 @@ public void validar(){
         ResultSet rs = cone.consultabd("SELECT * FROM registro_doctores WHERE correo = "
                 + "'"+CuadroEmail.getText()+"' AND contraseña = '"+CuadroPassword.getText()+"'");
         if (rs.next()){
-            PacienteDoctor in = new PacienteDoctor(rs.getString("nombre_completo"));
+            PacienteDoctor in = new PacienteDoctor(rs.getString("nombre"));
             in.setVisible(true);
             in.setSize(1280, 700);
         }else{

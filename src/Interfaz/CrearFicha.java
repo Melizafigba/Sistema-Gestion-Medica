@@ -53,9 +53,9 @@ Conexion funcion = new Conexion ();
         jdiagnostico = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jinsertar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         FondoLogin = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         iSexo = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jfecha = new com.toedter.calendar.JDateChooser();
@@ -163,10 +163,6 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jinsertar);
         jinsertar.setBounds(380, 430, 120, 50);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(390, 230, 520, 350);
-
         FondoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/0,75.png"))); // NOI18N
         FondoLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(FondoLogin);
@@ -176,6 +172,10 @@ Conexion funcion = new Conexion ();
         jLabel12.setText("Sexo");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(460, 260, 80, 21);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(380, 280, 520, 350);
 
         iSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -25,6 +25,7 @@ public class PacienteDoctor extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jLabel18.setText(nombre);
+        
         consulta("");
 
     }
@@ -37,13 +38,14 @@ public class PacienteDoctor extends javax.swing.JFrame {
         String sql;
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"ID", " NOMBRE ", " RUT ", "MOVIL", " CORREO "};
+            String[] titulos = {"ID", " NOMBRE ","Apellido", " RUT ", "MOVIL", " CORREO "};
             modelo = new DefaultTableModel(null, titulos);
             ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre, tipo_sexo_id) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
             while (rs.next()) {
                 datos[0] = rs.getString("id");
                 datos[1] = rs.getString("nombre");
+                datos[1] = rs.getString("apellido");
                 datos[2] = rs.getString("cedula");
                 datos[3] = rs.getString("movil");
                 datos[4] = rs.getString("correo");

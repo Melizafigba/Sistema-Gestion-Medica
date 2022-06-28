@@ -114,7 +114,7 @@ Conexion funcion = new Conexion ();
         jcedula.setBounds(100, 130, 330, 40);
 
         jLabel13.setForeground(new java.awt.Color(105, 111, 121));
-        jLabel13.setText("Nombre Completo");
+        jLabel13.setText("Nombre ");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(460, 110, 130, 21);
 
