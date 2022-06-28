@@ -131,25 +131,25 @@ INSERT INTO `registro_doctores` (`id`,    `nombre_completo`, `tipo_cita_id`, `ce
 -- Estructura de tabla para la tabla `registro_paciente`
 --
 
-CREATE TABLE `registro_paciente` (
+CREATE TABLE `registro_tutor` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `tipo_sexo_id` int(11) NOT NULL,
   `cedula` varchar(50) NOT NULL,
-  `celular` varchar(50) NOT NULL,
+  `movil` varchar(9) NOT NULL,
   `correo` varchar(50) NOT NULL,
   `contraseña` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `registro_paciente`
+-- Volcado de datos para la tabla `registro_tutor`
 --
 
-INSERT INTO `registro_paciente` (`id`,    `nombre`,           `tipo_sexo_id`,   `cedula`,       `celular`,       `correo`,                   `contraseña`) VALUES
-                                (2,       'Sebastián Obando',        2,         '10346826136',  '3219467561',    'SebastianOb123@gmail.com',       '1234'),
-                                (3,       'Julian Quesada',          2,         '11934613498',  '3216947588',    'Julian@hotmail.com',             '1234'),
-                                (4,       'Manuel Ciro',             2,         '1193462497',   '3217571566',    'ManuelCiro@gmail.com',           '1234'),
-                                (5,       'Karol Quesada Salazar',   1,         '345678443',    '31568976',      'Karolito@gmail.com',           '123456');
+INSERT INTO `registro_tutor` (`id`,    `nombre`,           `tipo_sexo_id`,   `cedula`,       `movil`,       `correo`,                   `contraseña`) VALUES
+                                (2,       'Sebastián Obando',        2,         '10346826136',  '921946756',    'SebastianOb123@gmail.com',       '1234'),
+                                (3,       'Julian Quesada',          2,         '11934613498',  '921694758',    'Julian@hotmail.com',             '1234'),
+                                (4,       'Manuel Ciro',             2,         '1193462497',   '921757156',    'ManuelCiro@gmail.com',           '1234'),
+                                (5,       'Karol Quesada Salazar',   1,         '345678443',    '915689763',      'Karolito@gmail.com',           '123456');
 
 -- --------------------------------------------------------
 
@@ -278,9 +278,9 @@ ALTER TABLE `registro_doctores`
 --
 -- Indices de la tabla `registro_paciente`
 --
-ALTER TABLE `registro_paciente`
+ALTER TABLE `registro_tutor`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_paciente` (`tipo_sexo_id`);
+  ADD KEY `FK_tutor` (`tipo_sexo_id`);
 --
 -- Indices de la tabla `tipo_cita`
 --
@@ -324,7 +324,7 @@ ALTER TABLE `registro_doctores`
 --
 -- AUTO_INCREMENT de la tabla `registro_paciente`
 --
-ALTER TABLE `registro_paciente`
+ALTER TABLE `registro_tutor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `hijos`
@@ -372,8 +372,8 @@ ALTER TABLE `hijos`
 --
 -- Filtros para la tabla `registro_paciente`
 --
-ALTER TABLE `registro_paciente`
-  ADD CONSTRAINT `FK_paciente` FOREIGN KEY (`tipo_sexo_id`) REFERENCES `tipo_sexo` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `registro_tutor`
+  ADD CONSTRAINT `FK_tutor` FOREIGN KEY (`tipo_sexo_id`) REFERENCES `tipo_sexo` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
