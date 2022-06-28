@@ -231,7 +231,7 @@ ResultSet rs = cone.consultabd("SELECT id FROM tipo_sexo  WHERE nombre  = '"+ise
 while (rs.next()){
     idtipo = rs.getInt(1);
 }
-cone.modificabd("INSERT INTO registro_paciente(id,nombre,tipo_sexo_id,cedula,celular,correo,contraseña) "
+cone.modificabd("INSERT INTO registro_tutor(id,nombre,tipo_sexo_id,cedula,movil,correo,contraseña) "
         + "VALUES (null,'"+jnombre.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
     JOptionPane.showMessageDialog(null,"Registro Finalizado");
     } catch (SQLException ex) {

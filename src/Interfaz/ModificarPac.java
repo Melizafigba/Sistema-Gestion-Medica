@@ -45,13 +45,13 @@ public class ModificarPac extends javax.swing.JFrame {
             Conexion cone2 = new Conexion();
             String[] titulos = {"ID", "NOMBRE", "RUT", "CELULAR", "CORREO"};
             modelo = new DefaultTableModel(null, titulos);
-            ResultSet rs = cone.consultabd("SELECT * FROM registro_paciente WHERE CONCAT (id,cedula,nombre,tipo_sexo_id) LIKE '%" + buscar1 + "%' ");
+            ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre,tipo_sexo_id) LIKE '%" + buscar1 + "%' ");
             String[] datos = new String[10];
             while (rs.next()) {
                 datos[0] = rs.getString("id");
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("cedula");
-                datos[3] = rs.getString("celular");
+                datos[3] = rs.getString("movil");
                 datos[4] = rs.getString("correo");
 
                 ResultSet rs2 = cone2.consultabd("SELECT nombre FROM tipo_sexo WHERE id = " + rs.getString("tipo_sexo_id") + "");
@@ -280,7 +280,7 @@ public class ModificarPac extends javax.swing.JFrame {
     }//GEN-LAST:event_jeditarActionPerformed
 
     private void jeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jeliminarActionPerformed
-        cone.modificabd("DELETE FROM registro_paciente WHERE cedula = " + modelo.getValueAt(iDatos1.getSelectedRow(), 2));
+        cone.modificabd("DELETE FROM registro_tutor WHERE cedula = " + modelo.getValueAt(iDatos1.getSelectedRow(), 2));
         consulta("");
     }//GEN-LAST:event_jeliminarActionPerformed
 

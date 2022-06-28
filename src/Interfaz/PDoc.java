@@ -36,13 +36,13 @@ public void consulta (String buscar){
         Conexion cone2 = new Conexion ();
         String[] titulos = {"ID"," NOMBRE "," RUT " , "CELULAR ", " CORREO " };
         modelo = new DefaultTableModel(null,titulos);
-        ResultSet rs = cone.consultabd("SELECT * FROM registro_paciente WHERE CONCAT (id,cedula,nombre, tipo_sexo_id) LIKE '%"+buscar+"%' ");
+        ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre, tipo_sexo_id) LIKE '%"+buscar+"%' ");
         String [] datos = new String [10];
         while (rs.next()){
             datos[0]=rs.getString("id");
             datos[1]=rs.getString("nombre");
             datos[2]=rs.getString("cedula");
-            datos[3]=rs.getString("celular");
+            datos[3]=rs.getString("movil");
             datos[4]=rs.getString("correo");
             
           
