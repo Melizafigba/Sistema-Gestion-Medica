@@ -62,6 +62,9 @@ Conexion funcion = new Conexion ();
         jalergico = new javax.swing.JTextField();
         jnombre1 = new javax.swing.JTextField();
         ficha = new javax.swing.JButton();
+        japellido = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -96,9 +99,9 @@ Conexion funcion = new Conexion ();
         atras1.setBounds(790, 40, 30, 30);
 
         jLabel21.setForeground(new java.awt.Color(105, 111, 121));
-        jLabel21.setText("RUT");
+        jLabel21.setText("RUT del Tutor");
         jPanel1.add(jLabel21);
-        jLabel21.setBounds(100, 110, 90, 21);
+        jLabel21.setBounds(650, 20, 120, 21);
 
         jcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +117,7 @@ Conexion funcion = new Conexion ();
         jcedula.setBounds(100, 130, 330, 40);
 
         jLabel13.setForeground(new java.awt.Color(105, 111, 121));
-        jLabel13.setText("Nombre Completo");
+        jLabel13.setText("Nombre ");
         jPanel1.add(jLabel13);
         jLabel13.setBounds(460, 110, 130, 21);
 
@@ -129,7 +132,7 @@ Conexion funcion = new Conexion ();
         jLabel10.setForeground(new java.awt.Color(105, 111, 121));
         jLabel10.setText("Diagnóstico");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(460, 260, 120, 21);
+        jLabel10.setBounds(100, 340, 120, 21);
 
         jdiagnostico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,7 +140,7 @@ Conexion funcion = new Conexion ();
             }
         });
         jPanel1.add(jdiagnostico);
-        jdiagnostico.setBounds(460, 280, 330, 40);
+        jdiagnostico.setBounds(100, 360, 330, 40);
 
         jLabel11.setForeground(new java.awt.Color(105, 111, 121));
         jLabel11.setText("Alergico A:");
@@ -172,7 +175,7 @@ Conexion funcion = new Conexion ();
         jLabel12.setForeground(new java.awt.Color(105, 111, 121));
         jLabel12.setText("Sexo");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(100, 180, 80, 21);
+        jLabel12.setBounds(460, 260, 80, 21);
 
         iSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +183,7 @@ Conexion funcion = new Conexion ();
             }
         });
         jPanel1.add(iSexo);
-        iSexo.setBounds(100, 200, 330, 40);
+        iSexo.setBounds(460, 280, 330, 40);
 
         jLabel16.setForeground(new java.awt.Color(105, 111, 121));
         jLabel16.setText("Fecha De Ingreso");
@@ -216,6 +219,24 @@ Conexion funcion = new Conexion ();
         });
         jPanel1.add(ficha);
         ficha.setBounds(0, 500, 140, 29);
+
+        japellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                japellidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(japellido);
+        japellido.setBounds(100, 200, 330, 40);
+
+        jLabel14.setForeground(new java.awt.Color(105, 111, 121));
+        jLabel14.setText("Apellido");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(100, 180, 80, 21);
+
+        jLabel22.setForeground(new java.awt.Color(105, 111, 121));
+        jLabel22.setText("RUT");
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(100, 110, 90, 21);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 860, 530));
 
@@ -258,7 +279,8 @@ Conexion funcion = new Conexion ();
 //
 //}
   public void limpiar(){
-       padre_id.setText("");
+       jnombre1.setText("");
+       japellido.setText("");
        jcedula.setText("");
        iSexo.setSelectedIndex(0);
        jfecha.setCalendar(null);
@@ -307,8 +329,8 @@ this.setVisible(false);
         while (rs.next()){
             idtipo = rs.getInt(1);
         }
-        cone.modificabd("INSERT INTO hijos(id,nombre,tipo_sexo_id,rut,alergico,diagnostico,fecha_cita,padre_id) "
-                + "VALUES (null,'"+padre_id.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jalergico.getText()+"','"+jdiagnostico.getText()+"','"+funcion.getFecha(jfecha)+"','"+padre_id.getText()+"')");
+        cone.modificabd("INSERT INTO hijos(id,nombre,apellido,tipo_sexo_id,rut,alergico,diagnostico,fecha_cita,padre_id) "
+                + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"','"+padre_id.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jalergico.getText()+"','"+jdiagnostico.getText()+"','"+funcion.getFecha(jfecha)+"','"+padre_id.getText()+"')");
     JOptionPane.showMessageDialog(null,"El Registro fue Exitoso!");
     } catch (SQLException ex) {
         Logger.getLogger(CrearFicha.class.getName()).log(Level.SEVERE, null, ex);
@@ -335,6 +357,10 @@ limpiar();
         vf.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_fichaActionPerformed
+
+    private void japellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_japellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_japellidoActionPerformed
 //
 //    /**
 //     * @param args the command line arguments
@@ -381,15 +407,18 @@ limpiar();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jalergico;
+    private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcedula;
     private javax.swing.JTextField jdiagnostico;
     private com.toedter.calendar.JDateChooser jfecha;

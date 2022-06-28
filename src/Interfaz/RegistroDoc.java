@@ -47,7 +47,8 @@ Conexion funcion = new Conexion ();
     }
 }
      public void limpiar(){
-       jnombre.setText("");
+       jnombre1.setText("");
+       japellido.setText("");
        jcedula.setText("");
        jcelular.setText("");
        jcorreo.setText("");
@@ -64,7 +65,7 @@ Conexion funcion = new Conexion ();
         Name = new javax.swing.JLabel();
         Complete = new javax.swing.JLabel();
         NameComplete = new javax.swing.JLabel();
-        jnombre = new javax.swing.JTextField();
+        japellido = new javax.swing.JTextField();
         Email = new javax.swing.JLabel();
         jcedula = new javax.swing.JTextField();
         Password = new javax.swing.JLabel();
@@ -80,6 +81,8 @@ Conexion funcion = new Conexion ();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jcontraseña = new javax.swing.JTextField();
+        jnombre1 = new javax.swing.JTextField();
+        NameComplete1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -100,15 +103,15 @@ Conexion funcion = new Conexion ();
         jPanel1.add(Complete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 260, 50));
 
         NameComplete.setForeground(new java.awt.Color(105, 111, 121));
-        NameComplete.setText("Nombre completo*");
-        jPanel1.add(NameComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        NameComplete.setText("Apellido");
+        jPanel1.add(NameComplete, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
 
-        jnombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 320, 50));
+        japellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(japellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 320, 50));
 
         Email.setForeground(new java.awt.Color(105, 111, 121));
         Email.setText("Correo Electronico*");
-        jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
+        jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jcedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jcedula.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -116,14 +119,14 @@ Conexion funcion = new Conexion ();
                 jcedulaKeyTyped(evt);
             }
         });
-        jPanel1.add(jcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 320, 50));
+        jPanel1.add(jcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 320, 50));
 
         Password.setForeground(new java.awt.Color(105, 111, 121));
         Password.setText("Cree una contraseña*");
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
 
         jcorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 320, 50));
+        jPanel1.add(jcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 320, 50));
 
         ButtonSave.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         ButtonSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,14 +141,14 @@ Conexion funcion = new Conexion ();
                 ButtonSaveActionPerformed(evt);
             }
         });
-        jPanel1.add(ButtonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, 320, 30));
+        jPanel1.add(ButtonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 320, 30));
 
         FondoSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageNew/Rectangle 27.png"))); // NOI18N
-        jPanel1.add(FondoSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 320, 50));
+        jPanel1.add(FondoSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 320, 50));
 
         Direccion.setForeground(new java.awt.Color(105, 111, 121));
         Direccion.setText("Especializacion*");
-        jPanel1.add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 90, -1));
+        jPanel1.add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 120, -1));
 
         jcelular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jcelular.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -153,20 +156,20 @@ Conexion funcion = new Conexion ();
                 jcelularKeyTyped(evt);
             }
         });
-        jPanel1.add(jcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 320, 50));
+        jPanel1.add(jcelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 320, 50));
 
         Telefono.setForeground(new java.awt.Color(105, 111, 121));
-        Telefono.setText("Celular*");
-        jPanel1.add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 250, -1, -1));
+        Telefono.setText("Celular");
+        jPanel1.add(Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, -1, -1));
 
         Cedula.setForeground(new java.awt.Color(105, 111, 121));
-        Cedula.setText("Cedula ciudadania*");
-        jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        Cedula.setText("RUT*");
+        jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Avatars/Avatar_1.png"))); // NOI18N
         jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
 
-        jPanel1.add(jtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 320, 50));
+        jPanel1.add(jtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 320, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Img.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 560, -1, 160));
@@ -185,7 +188,14 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, 40));
 
         jcontraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 320, 50));
+        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 320, 50));
+
+        jnombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 320, 50));
+
+        NameComplete1.setForeground(new java.awt.Color(105, 111, 121));
+        NameComplete1.setText("Nombre");
+        jPanel1.add(NameComplete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 790, 720));
 
@@ -226,8 +236,8 @@ ResultSet rs = cone.consultabd("SELECT id FROM tipo_cita WHERE nombre = '"+jtipo
 while (rs.next()){
     idtipo = rs.getInt(1);
 }
-cone.modificabd("INSERT INTO registro_doctores(id,nombre_completo,tipo_cita_id,cedula,celular,correo,contraseña) "
-        + "VALUES (null,'"+jnombre.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
+cone.modificabd("INSERT INTO registro_doctores(id,nombre,apellido,tipo_cita_id,cedula,celular,correo,contraseña) "
+        + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
     JOptionPane.showMessageDialog(null,"Registro Finalizado");
     } catch (SQLException ex) {
         Logger.getLogger(RegistroDoc.class.getName()).log(Level.SEVERE, null, ex);
@@ -300,16 +310,18 @@ cone.modificabd("INSERT INTO registro_doctores(id,nombre_completo,tipo_cita_id,c
     private javax.swing.JLabel FondoSave;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel NameComplete;
+    private javax.swing.JLabel NameComplete1;
     private javax.swing.JLabel Password;
     private javax.swing.JLabel Telefono;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcedula;
     private javax.swing.JTextField jcelular;
     private javax.swing.JTextField jcontraseña;
     private javax.swing.JTextField jcorreo;
-    private javax.swing.JTextField jnombre;
+    private javax.swing.JTextField jnombre1;
     private javax.swing.JComboBox<String> jtipo;
     // End of variables declaration//GEN-END:variables
 }

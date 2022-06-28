@@ -60,6 +60,8 @@ Conexion funcion = new Conexion ();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         iSexo = new javax.swing.JComboBox<>();
+        japellido = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -130,12 +132,12 @@ Conexion funcion = new Conexion ();
             }
         });
         jPanel1.add(jcontraseña);
-        jcontraseña.setBounds(460, 280, 330, 40);
+        jcontraseña.setBounds(100, 350, 330, 40);
 
         jLabel10.setForeground(new java.awt.Color(105, 111, 121));
         jLabel10.setText("Crear Contraseña");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(460, 260, 120, 21);
+        jLabel10.setBounds(100, 330, 120, 21);
 
         jcelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +198,7 @@ Conexion funcion = new Conexion ();
         jLabel12.setForeground(new java.awt.Color(105, 111, 121));
         jLabel12.setText("Sexo");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(100, 180, 80, 21);
+        jLabel12.setBounds(460, 260, 80, 21);
 
         iSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +206,20 @@ Conexion funcion = new Conexion ();
             }
         });
         jPanel1.add(iSexo);
-        iSexo.setBounds(100, 200, 330, 40);
+        iSexo.setBounds(460, 280, 330, 40);
+
+        japellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                japellidoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(japellido);
+        japellido.setBounds(100, 200, 330, 40);
+
+        jLabel14.setForeground(new java.awt.Color(105, 111, 121));
+        jLabel14.setText("Apellido");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(100, 180, 80, 21);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 860, 530));
 
@@ -317,8 +332,8 @@ Conexion funcion = new Conexion ();
         while (rs.next()){
             idtipo = rs.getInt(1);
         }
-        cone.modificabd("INSERT INTO registro_tutor(id,nombre,tipo_sexo_id,cedula,movil,correo,contraseña) "
-                + "VALUES (null,'"+jnombre.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
+        cone.modificabd("INSERT INTO registro_tutor(id,nombre,apellido,tipo_sexo_id,cedula,movil,correo,contraseña) "
+                + "VALUES (null,'"+jnombre.getText()+"','"+japellido.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
     JOptionPane.showMessageDialog(null,"El Registro fue Exitoso!");
     } catch (SQLException ex) {
         Logger.getLogger(PacienteNuevo.class.getName()).log(Level.SEVERE, null, ex);
@@ -331,6 +346,10 @@ limpiar();
     private void iSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iSexoActionPerformed
+
+    private void japellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_japellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_japellidoActionPerformed
 //
 //    /**
 //     * @param args the command line arguments
@@ -376,6 +395,7 @@ limpiar();
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -384,6 +404,7 @@ limpiar();
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcedula;
     private javax.swing.JTextField jcelular;
     private javax.swing.JTextField jcontraseña;

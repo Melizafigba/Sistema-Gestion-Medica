@@ -107,7 +107,8 @@ INSERT INTO `ordenes_citas` (`nombre`, `apellido`,      `cedula`,       `celular
 
 CREATE TABLE `registro_doctores` (
   `id` int(11) NOT NULL,
-  `nombre_completo` varchar(50) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
   `tipo_cita_id` int(11) NOT NULL,
   `cedula` varchar(50) NOT NULL,
   `celular` varchar(50) NOT NULL,
@@ -119,11 +120,11 @@ CREATE TABLE `registro_doctores` (
 -- Volcado de datos para la tabla `registro_doctores`
 --
 
-INSERT INTO `registro_doctores` (`id`,    `nombre_completo`, `tipo_cita_id`, `cedula`,        `celular`,      `correo`,                    `contraseña`) VALUES
-                                (1,      'Sebastián Obando',        2,      '10346826136',    '3219467561',   'SebastianOb123@gmail.com',        '1234'),
-                                (2,        'Julian Quesada',        1,      '11934613498',    '3216947588',   'Julian@hotmail.com',              '1234'),
-                                (3,           'Manuel Ciro',        5,      '1193462497',     '3217571566',   'ManuelCiro@gmail.com',            '1234'),
-                                (4, 'Karol Quesada Salazar',        4,      '345678443',      '31568976',     'Karolito@gmail.com',              '1234');
+INSERT INTO `registro_doctores` (`id`,     `nombre`,   `apellido`,  `tipo_cita_id`,      `cedula`,        `celular`,      `correo`,                 `contraseña`) VALUES
+                                (1,    'Sebastián ',     'Obando',        2,          '103468261',      '921946756',   'SebastianOb123@gmail.com',        '1234'),
+                                (2,       'Julian ',    'Quesada',        1,          '119346134',      '921694758',   'Julian@hotmail.com',              '1234'),
+                                (3,       'Manuel ',       'Ciro',        5,          '119346497',      '921757156',   'ManuelCiro@gmail.com',            '1234'),
+                                (4,        'Karol ',    'Salazar',        4,          '345678443',      '915689763',   'Karolito@gmail.com',              '1234');
 
 -- --------------------------------------------------------
 
@@ -134,6 +135,7 @@ INSERT INTO `registro_doctores` (`id`,    `nombre_completo`, `tipo_cita_id`, `ce
 CREATE TABLE `registro_tutor` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
   `tipo_sexo_id` int(11) NOT NULL,
   `cedula` varchar(50) NOT NULL,
   `movil` varchar(9) NOT NULL,
@@ -145,11 +147,11 @@ CREATE TABLE `registro_tutor` (
 -- Volcado de datos para la tabla `registro_tutor`
 --
 
-INSERT INTO `registro_tutor` (`id`,    `nombre`,           `tipo_sexo_id`,   `cedula`,       `movil`,       `correo`,                   `contraseña`) VALUES
-                                (2,       'Sebastián Obando',        2,         '10346826136',  '921946756',    'SebastianOb123@gmail.com',       '1234'),
-                                (3,       'Julian Quesada',          2,         '11934613498',  '921694758',    'Julian@hotmail.com',             '1234'),
-                                (4,       'Manuel Ciro',             2,         '1193462497',   '921757156',    'ManuelCiro@gmail.com',           '1234'),
-                                (5,       'Karol Quesada Salazar',   1,         '345678443',    '915689763',      'Karolito@gmail.com',           '123456');
+INSERT INTO `registro_tutor` (`id`,      `nombre`,    `apellido`,   `tipo_sexo_id`,      `cedula`,       `movil`,          `correo`,             `contraseña`) VALUES
+                                (2,   'Sebastián',      'Obando',          2,         '103468261',   '921946756',    'SebastianOb123@gmail.com',       '1234'),
+                                (3,      'Julian',     'Quesada',          2,         '119346134',   '921694758',    'Julian@hotmail.com',             '1234'),
+                                (4,      'Manuel',        'Ciro',          2,         '119346249',   '921757156',    'ManuelCiro@gmail.com',           '1234'),
+                                (5,       'Karol',     'Salazar',          1,         '345678443',   '915689763',    'Karolito@gmail.com',             '1234');
 
 -- --------------------------------------------------------
 
@@ -218,6 +220,7 @@ INSERT INTO `tipo_jornada` (`id`, `nombre`) VALUES
 CREATE TABLE `hijos` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
   `tipo_sexo_id` int(11) NOT NULL,
   `rut` varchar(50) NOT NULL,
   `alergico` varchar(50) NOT NULL,
@@ -230,12 +233,12 @@ CREATE TABLE `hijos` (
 -- Volcado de datos para la tabla `hijos`
 --
 
-INSERT INTO `hijos` (`id`,     `nombre`,  `tipo_sexo_id`,   `rut`,          `alergico`,        `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
-                    (0,     'Sebastián',         2,       '202020',        ' Dipirona',           'Pulmonia',       '30-10-2021',    '10346826136'),
-                    (1,          'Juan',         2,       '202202',            'Polen',    'Dolor Estomacal',        '4-10-2021',    '10346826136'),
-                    (2,          'Rosa',         1,       '232323',         'Aspirina',            'Vomitos',       '30-05-2022',    '10346826136'),
-                    (3,         'Maria',         1,       '242424',               'no',            'Resfrio',       '30-04-2021',     '1193462497'),
-                    (4,        'Daniel',         2,       '252525',  'Frutas Citricas',    'Dolor de cabeza',       '30-03-2022',     '1193462497');
+INSERT INTO `hijos` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,   `rut`,          `alergico`,        `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
+                    (0,     'Sebastián',     'Obando',        2,       '202020',        ' Dipirona',           'Pulmonia',       '30-10-2021',    '10346826136'),
+                    (1,          'Juan',    'Quezada',        2,       '202202',            'Polen',    'Dolor Estomacal',        '4-10-2021',    '10346826136'),
+                    (2,          'Rosa',       'Lara',        1,       '232323',         'Aspirina',            'Vomitos',       '30-05-2022',    '10346826136'),
+                    (3,         'Maria',      'Suarez,       '1,       '242424',               'no',            'Resfrio',       '30-04-2021',     '1193462497'),
+                    (4,        'Daniel',    'Gonzalez,       '2,       '252525',  'Frutas Citricas',    'Dolor de cabeza',       '30-03-2022',     '1193462497');
 
 -- --------------------------------------------------------
 --
