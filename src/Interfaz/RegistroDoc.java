@@ -9,17 +9,23 @@ package Interfaz;
  * @author maite
  */
 import Metodos_php.Conexion;
+import Metodos_php.HttpClientConexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 
 
@@ -27,7 +33,24 @@ public class RegistroDoc extends javax.swing.JFrame {
 Conexion cone;
 Conexion funcion = new Conexion ();
 
-    public RegistroDoc() {
+    public RegistroDoc() throws Exception {
+   String teset= HttpClientConexion.httpget("https://desarrollos.cl/app-contigo/api/api.service.php?nombreFuncion=obtener_hijos&padre_id=103468261");
+   JSONParser parser = new JSONParser();    
+   JSONObject object = (JSONObject) parser.parse(teset);    
+   
+   System.out.println(object.get("resultado").toString());
+   ArrayList<String> list = new ArrayList<String>();
+   JSONArray jsonArray = (JSONArray) object.get("resultado");
+    
+   
+   /*
+   JSONArray array = (JSONArray) object.get("resultado");
+        Iterator<String> iterator = array.iterator();
+   while (iterator.hasNext()){
+   
+   System.out.println(iterator.next());
+    }*/
+   
         initComponents();
         cone = new Conexion();
         llenarcombo();

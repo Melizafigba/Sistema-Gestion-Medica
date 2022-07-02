@@ -20,7 +20,7 @@ Conexion cone;
         cone = new Conexion();
         initComponents();
     }
-public void validar(){
+public void validar() throws Exception{
         
     try {
         ResultSet rs = cone.consultabd("SELECT * FROM inicio_admi WHERE usuario = "
@@ -219,7 +219,11 @@ public void validar(){
     }//GEN-LAST:event_CuadroEmailActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+    try {
         validar();
+    } catch (Exception ex) {
+        Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
+    }
 
     }//GEN-LAST:event_LoginActionPerformed
 
@@ -228,7 +232,11 @@ public void validar(){
     }//GEN-LAST:event_AsistentesActionPerformed
 
     private void CuadroPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CuadroPasswordActionPerformed
+    try {
         validar();
+    } catch (Exception ex) {
+        Logger.getLogger(Administrador.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_CuadroPasswordActionPerformed
 
 

@@ -106,7 +106,7 @@ INSERT INTO `ordenes_citas` (`nombre`, `apellido`,      `cedula`,       `celular
 --
 
 CREATE TABLE `registro_doctores` (
-  `id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
   `tipo_cita_id` int(11) NOT NULL,
@@ -120,11 +120,11 @@ CREATE TABLE `registro_doctores` (
 -- Volcado de datos para la tabla `registro_doctores`
 --
 
-INSERT INTO `registro_doctores` (`id`,     `nombre`,   `apellido`,  `tipo_cita_id`,      `cedula`,        `celular`,      `correo`,                 `contraseña`) VALUES
-                                (1,    'Sebastián ',     'Obando',        2,          '103468261',      '921946756',   'SebastianOb123@gmail.com',        '1234'),
-                                (2,       'Julian ',    'Quesada',        1,          '119346134',      '921694758',   'Julian@hotmail.com',              '1234'),
-                                (3,       'Manuel ',       'Ciro',        5,          '119346497',      '921757156',   'ManuelCiro@gmail.com',            '1234'),
-                                (4,        'Karol ',    'Salazar',        4,          '345678443',      '915689763',   'Karolito@gmail.com',              '1234');
+INSERT INTO `registro_doctores` (`doctor_id`,     `nombre`,   `apellido`,  `tipo_cita_id`,      `cedula`,        `celular`,      `correo`,                 `contraseña`) VALUES
+                                (1,           'Sebastián ',     'Obando',        2,          '103468261',      '921946756',   'SebastianOb123@gmail.com',        '1234'),
+                                (2,              'Julian ',    'Quesada',        1,          '119346134',      '921694758',   'Julian@hotmail.com',              '1234'),
+                                (3,              'Manuel ',       'Ciro',        5,          '119346497',      '921757156',   'ManuelCiro@gmail.com',            '1234'),
+                                (4,               'Karol ',    'Salazar',        4,          '345678443',      '915689763',   'Karolito@gmail.com',              '1234');
 
 -- --------------------------------------------------------
 
@@ -223,9 +223,10 @@ CREATE TABLE `hijos` (
   `apellido` varchar(50) NOT NULL,
   `tipo_sexo_id` int(11) NOT NULL,
   `rut` varchar(50) NOT NULL,
+  `fecha_nac` varchar(50) NOT NULL,
   `alergico` varchar(50) NOT NULL,
-  `diagnostico` varchar(50) NOT NULL,
-  `fecha_cita` varchar(50) NOT NULL,
+  `peso` int(11) NOT NULL,
+  `estatura` int(11)NOT NULL,
   `padre_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -233,12 +234,42 @@ CREATE TABLE `hijos` (
 -- Volcado de datos para la tabla `hijos`
 --
 
-INSERT INTO `hijos` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,    `rut`,          `alergico`,        `diagnostico`,       `fecha_cita`,       `padre_id`) VALUES
-                    (0,     'Sebastián',     'Obando',        2,       '202020',         ' Dipirona',           'Pulmonia',       '30-10-2021',    '10346826136'),
-                    (1,          'Juan',    'Quezada',        2,       '202202',             'Polen',    'Dolor Estomacal',        '4-10-2021',    '10346826136'),
-                    (2,          'Rosa',       'Lara',        1,       '232323',          'Aspirina',            'Vomitos',       '30-05-2022',    '10346826136'),
-                    (3,         'Maria',     'Suarez',        1,       '242424',                'no',            'Resfrio',       '30-04-2021',     '1193462497'),
-                    (4,        'Daniel',    'Gonzalez',       2,       '252525',   'Frutas Citricas',    'Dolor de cabeza',       '30-03-2022',     '1193462497');
+INSERT INTO `hijos` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,    `rut`,    `fecha_nac`,         `alergico`,    `peso`,    estatura,       `padre_id`) VALUES
+                    (0,     'Sebastián',     'Obando',        2,       '202020',   '25-06-2021',         'Dipirona',     '7,8',      '72,3',    '10346826136'),
+                    (1,          'Juan',    'Quezada',        2,       '202202',   '24-06-2020',            'Polen',   '10,88',      '82,5',    '10346826136'),
+                    (2,          'Rosa',       'Lara',        1,       '232323',   '02-07-2019',         'Aspirina',    '12,7',      '87,6',    '10346826136'),
+                    (3,         'Maria',     'Suarez',        1,       '242424',   '14-09-2018',                '-',   '16,33',     '105,6',     '1193462497'),
+                    (4,        'Daniel',    'Gonzalez',       2,       '252525',   '20-11-2017',  'Frutas Citricas',   '27,22',      '16,3',     '1193462497');
+
+-- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `ficha`
+--
+
+CREATE TABLE `ficha` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `tipo_sexo_id` int(11) NOT NULL,
+  `rut` varchar(50) NOT NULL,
+  `fecha_nac` varchar(50) NOT NULL,
+  `fecha_cita` varchar(50) NOT NULL,
+  `motivo` varchar(50) NOT NULL,
+  `des_diagnostico` varchar(50) NOT NULL,
+  `receta` varchar(50) NOT NULL,
+  `doctor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ficha`
+--
+
+INSERT INTO `ficha` (`id`,     `nombre`,   `apellido`, `tipo_sexo_id`,    `rut`,    `fecha_nac`,  `fecha_cita`,                 `motivo`,   `des_diagnostico`,                                                    `receta`, `doctor_id`) VALUES
+                    (0,     'Sebastián',     'Obando',        2,       '202020',   '25-06-2021',  '25-06-2022',            'Fiebre alta',     'Resfrío Común',            'Paracetamol en gotitas cada 8 horas por 7 días',          2),
+                    (1,          'Juan',    'Quezada',        2,       '202202',   '24-06-2020',  '24-06-2022',      'Dolor de estomago',    'Gastritis leve',                'Viadil en gotitas cada 12 horas por 7 días',          2),
+                    (2,          'Rosa',       'Lara',        1,       '232323',   '02-07-2019',  '02-07-2022',         'Dolor de Oídos',       'Otitis Leve',  'Ciprofloxacina, 5 gotas por cada 12 horas durante 5 días',          2),
+                    (3,         'Maria',     'Suarez',        1,       '242424',   '14-09-2018',  '14-09-2022',  'Problema respiratorio',        'Neumonitis',         'Salbutamol,Inhalador cada 8 horas durante 14 días',          2),
+                    (4,        'Daniel',    'Gonzalez',       2,       '252525',   '20-11-2017',  '20-11-2022',           'Taquicardias',  'Soplo al Corazón',                                   'atenolol 50mg 1 por día',          4);
 
 -- --------------------------------------------------------
 --

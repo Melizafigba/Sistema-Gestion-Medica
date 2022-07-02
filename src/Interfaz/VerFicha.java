@@ -182,8 +182,13 @@ public class VerFicha extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        RegistroDoc registroDoc = new RegistroDoc();
+        RegistroDoc registroDoc;
+        try {
+            registroDoc = new RegistroDoc();
         registroDoc.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(VerFicha.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed

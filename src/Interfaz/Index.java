@@ -4,6 +4,12 @@
  */
 package Interfaz;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.management.remote.JMXConnectorFactory;
+
 /**
  *
  * @author maite
@@ -14,8 +20,9 @@ public class Index extends javax.swing.JFrame {
     public Index() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
