@@ -62,11 +62,11 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Datos del Paciente"/>
+            <Property name="text" type="java.lang.String" value="Ingrese Datos del Tutor"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="60" width="230" height="-1"/>
+              <AbsoluteConstraints x="60" y="60" width="290" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -150,7 +150,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="410" width="-1" height="-1"/>
+              <AbsoluteConstraints x="250" y="410" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -312,7 +312,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="60" y="430" width="320" height="50"/>
+              <AbsoluteConstraints x="250" y="430" width="320" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

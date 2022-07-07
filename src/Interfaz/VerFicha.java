@@ -38,7 +38,7 @@ public class VerFicha extends javax.swing.JFrame {
         String sql;
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"ID", "NOMBRE ", " SEXO ", "ALERGICO ", " DIAGNOSTICO ", "FECHA DE INGRESO", "RUT DEL PADRE"};
+            String[] titulos = {"ID", "NOMBRE ","APELLIDO", " SEXO ", "RUT ", "FECHA NAC", " ALERGICO ", "PESO","ESTATURA","RUT TUTOR"};
             modelo = new DefaultTableModel(null, titulos);
             ResultSet rs = cone.consultabd("SELECT * FROM hijos WHERE CONCAT (nombre,tipo_sexo_id,alergico,diagnostico,fecha_cita, padre_id) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
@@ -137,7 +137,7 @@ public class VerFicha extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(iDatos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 760, 490));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 760, 540));
 
         jButton3.setFont(new java.awt.Font("Dubai", 1, 15)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,10 +162,10 @@ public class VerFicha extends javax.swing.JFrame {
         jLabel4.setText("Ficha del Infante");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 830, 720));
-
         Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
-        getContentPane().add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, 410, 470, 310));
+        jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, -40, 470, 310));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 830, 720));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Data.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 720));

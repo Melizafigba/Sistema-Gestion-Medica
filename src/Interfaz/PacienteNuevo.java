@@ -42,7 +42,6 @@ Conexion funcion = new Conexion ();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -62,9 +61,11 @@ Conexion funcion = new Conexion ();
         iSexo = new javax.swing.JComboBox<>();
         japellido = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,10 +73,6 @@ Conexion funcion = new Conexion ();
         jPanel1.setBackground(new java.awt.Color(239, 243, 249));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img2/Datos personales.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(110, 60, 192, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icon.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -221,16 +218,26 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jLabel14);
         jLabel14.setBounds(100, 180, 80, 21);
 
+        jLabel6.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Datos Personales del Tutor");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(110, 50, 280, 42);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/padres2.png"))); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(50, 0, 810, 530);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 860, 530));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Union.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -70, -1, -1));
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Ellipse 209.png"))); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(911, 270, 620, 620));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Union.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -390,7 +397,6 @@ limpiar();
     private javax.swing.JLabel FondoLogin;
     private javax.swing.JComboBox<String> iSexo;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -402,6 +408,8 @@ limpiar();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField japellido;

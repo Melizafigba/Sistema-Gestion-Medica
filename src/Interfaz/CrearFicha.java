@@ -42,7 +42,6 @@ Conexion funcion = new Conexion ();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         atras1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -50,7 +49,7 @@ Conexion funcion = new Conexion ();
         jLabel13 = new javax.swing.JLabel();
         padre_id = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jdiagnostico = new javax.swing.JTextField();
+        jpeso = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jinsertar = new javax.swing.JButton();
         FondoLogin = new javax.swing.JLabel();
@@ -58,13 +57,16 @@ Conexion funcion = new Conexion ();
         jLabel4 = new javax.swing.JLabel();
         iSexo = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        jfecha = new com.toedter.calendar.JDateChooser();
+        jfecha_nac = new com.toedter.calendar.JDateChooser();
         jalergico = new javax.swing.JTextField();
         jnombre1 = new javax.swing.JTextField();
         ficha = new javax.swing.JButton();
         japellido = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jestatura = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -75,10 +77,6 @@ Conexion funcion = new Conexion ();
         jPanel1.setBackground(new java.awt.Color(239, 243, 249));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img2/Datos personales.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(110, 60, 192, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icon.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -130,17 +128,17 @@ Conexion funcion = new Conexion ();
         padre_id.setBounds(610, 40, 180, 30);
 
         jLabel10.setForeground(new java.awt.Color(105, 111, 121));
-        jLabel10.setText("Diagnóstico");
+        jLabel10.setText("Peso (Kg):");
         jPanel1.add(jLabel10);
         jLabel10.setBounds(100, 340, 120, 21);
 
-        jdiagnostico.addActionListener(new java.awt.event.ActionListener() {
+        jpeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jdiagnosticoActionPerformed(evt);
+                jpesoActionPerformed(evt);
             }
         });
-        jPanel1.add(jdiagnostico);
-        jdiagnostico.setBounds(100, 360, 330, 40);
+        jPanel1.add(jpeso);
+        jpeso.setBounds(100, 360, 330, 40);
 
         jLabel11.setForeground(new java.awt.Color(105, 111, 121));
         jLabel11.setText("Alergico A:");
@@ -175,7 +173,7 @@ Conexion funcion = new Conexion ();
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(380, 280, 520, 350);
+        jLabel4.setBounds(550, 270, 520, 350);
 
         iSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,14 +184,14 @@ Conexion funcion = new Conexion ();
         iSexo.setBounds(460, 280, 330, 40);
 
         jLabel16.setForeground(new java.awt.Color(105, 111, 121));
-        jLabel16.setText("Fecha De Ingreso");
+        jLabel16.setText("Fecha De Nacimiento");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(460, 180, 230, 21);
 
-        jfecha.setDateFormatString("dd/MM/yyyy");
-        jfecha.setFocusable(false);
-        jPanel1.add(jfecha);
-        jfecha.setBounds(460, 200, 330, 40);
+        jfecha_nac.setDateFormatString("dd/MM/yyyy");
+        jfecha_nac.setFocusable(false);
+        jPanel1.add(jfecha_nac);
+        jfecha_nac.setBounds(460, 200, 330, 40);
 
         jalergico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,16 +236,35 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jLabel22);
         jLabel22.setBounds(100, 110, 90, 21);
 
+        jLabel6.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6.setText("Datos Personales del Infante");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(110, 50, 300, 42);
+
+        jLabel15.setForeground(new java.awt.Color(105, 111, 121));
+        jLabel15.setText("Estatura (cm) :");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(460, 340, 130, 21);
+
+        jestatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jestaturaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jestatura);
+        jestatura.setBounds(460, 360, 330, 40);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 860, 530));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Union.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -70, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Ellipse 209.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(911, 270, 620, 620));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 510, 390));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
@@ -283,15 +300,15 @@ Conexion funcion = new Conexion ();
        japellido.setText("");
        jcedula.setText("");
        iSexo.setSelectedIndex(0);
-       jfecha.setCalendar(null);
+       jfecha_nac.setCalendar(null);
        jalergico.setText("");
-       jdiagnostico.setText(""); 
+       jpeso.setText(""); 
        padre_id.setText(""); 
    }
  
-    private void jdiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdiagnosticoActionPerformed
+    private void jpesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jdiagnosticoActionPerformed
+    }//GEN-LAST:event_jpesoActionPerformed
 
     private void padre_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_padre_idActionPerformed
         // TODO add your handling code here:
@@ -329,8 +346,8 @@ this.setVisible(false);
         while (rs.next()){
             idtipo = rs.getInt(1);
         }
-        cone.modificabd("INSERT INTO hijos(id,nombre,apellido,tipo_sexo_id,rut,alergico,diagnostico,fecha_cita,padre_id) "
-                + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"','"+padre_id.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jalergico.getText()+"','"+jdiagnostico.getText()+"','"+funcion.getFecha(jfecha)+"','"+padre_id.getText()+"')");
+        cone.modificabd("INSERT INTO hijos(id,nombre,apellido,tipo_sexo_id,rut,fecha_nac,alergico,peso,estatura,padre_id) "
+                + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"','"+padre_id.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jalergico.getText()+"','"+jpeso.getText()+"','"+funcion.getFecha(jfecha_nac)+"','"+padre_id.getText()+"')");
     JOptionPane.showMessageDialog(null,"El Registro fue Exitoso!");
     } catch (SQLException ex) {
         Logger.getLogger(CrearFicha.class.getName()).log(Level.SEVERE, null, ex);
@@ -361,6 +378,10 @@ limpiar();
     private void japellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_japellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_japellidoActionPerformed
+
+    private void jestaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jestaturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jestaturaActionPerformed
 //
 //    /**
 //     * @param args the command line arguments
@@ -402,12 +423,12 @@ limpiar();
     private javax.swing.JButton atras1;
     private javax.swing.JButton ficha;
     private javax.swing.JComboBox<String> iSexo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -415,15 +436,17 @@ limpiar();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jalergico;
     private javax.swing.JTextField japellido;
     private javax.swing.JTextField jcedula;
-    private javax.swing.JTextField jdiagnostico;
-    private com.toedter.calendar.JDateChooser jfecha;
+    private javax.swing.JTextField jestatura;
+    private com.toedter.calendar.JDateChooser jfecha_nac;
     private javax.swing.JButton jinsertar;
     private javax.swing.JTextField jnombre1;
+    private javax.swing.JTextField jpeso;
     private javax.swing.JTextField padre_id;
     // End of variables declaration//GEN-END:variables
 }

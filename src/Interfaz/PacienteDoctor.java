@@ -38,9 +38,9 @@ public class PacienteDoctor extends javax.swing.JFrame {
         String sql;
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"ID", " NOMBRE ","Apellido", " RUT ", "MOVIL", " CORREO "};
+            String[] titulos = {"ID", " NOMBRE "," RUT ", "MOVIL", " CORREO "};
             modelo = new DefaultTableModel(null, titulos);
-            ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre, tipo_sexo_id) LIKE '%" + buscar + "%' ");
+            ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre,apellido, tipo_sexo_id) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
             while (rs.next()) {
                 datos[0] = rs.getString("id");
@@ -70,7 +70,6 @@ public class PacienteDoctor extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Avatar = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         buscar = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -80,6 +79,7 @@ public class PacienteDoctor extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,10 +93,6 @@ public class PacienteDoctor extends javax.swing.JFrame {
 
         Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Avatar2.png"))); // NOI18N
         jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Datos de los pacientes.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         buscar.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
         buscar.setForeground(new java.awt.Color(0, 102, 153));
@@ -152,7 +148,7 @@ public class PacienteDoctor extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Dubai", 1, 15)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Nuevo Paciente");
+        jButton3.setText("Registra Nuevo Tutor");
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -160,13 +156,13 @@ public class PacienteDoctor extends javax.swing.JFrame {
                 registropacientenuevo(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(657, 134, 140, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 134, 190, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 102, 153));
         jLabel3.setFont(new java.awt.Font("Dubai", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 0, 0));
         jLabel3.setOpaque(true);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 150, 40));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 200, 40));
 
         jButton2.setText("Crear Ficha");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +171,11 @@ public class PacienteDoctor extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 149, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Datos de los Tutores");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 220, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 830, 720));
 
@@ -253,8 +254,8 @@ public class PacienteDoctor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

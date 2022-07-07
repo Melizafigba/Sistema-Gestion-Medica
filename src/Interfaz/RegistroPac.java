@@ -96,8 +96,8 @@ Conexion funcion = new Conexion ();
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Name.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        Name.setText("Datos del Paciente");
-        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 230, -1));
+        Name.setText("Ingrese Datos del Tutor");
+        jPanel1.add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 290, -1));
 
         Complete.setText("Complete la informacion con sus datos. ");
         jPanel1.add(Complete, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 280, 50));
@@ -133,7 +133,7 @@ Conexion funcion = new Conexion ();
 
         Password.setForeground(new java.awt.Color(105, 111, 121));
         Password.setText("Cree una contraseña*");
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, -1, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
 
         jcorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 320, 50));
@@ -192,7 +192,7 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, 40));
 
         jcontraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 320, 50));
+        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 320, 50));
 
         isexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

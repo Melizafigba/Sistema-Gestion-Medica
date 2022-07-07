@@ -33,7 +33,6 @@ Conexion funcion = new Conexion ();
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jcedula = new javax.swing.JTextField();
@@ -52,17 +51,18 @@ Conexion funcion = new Conexion ();
         FondoLogin = new javax.swing.JLabel();
         jtipo = new javax.swing.JComboBox<>();
         jfecha = new com.toedter.calendar.JDateChooser();
-        Horario = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        Horario = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jtipo1 = new javax.swing.JComboBox<>();
         jSexo = new javax.swing.JComboBox<>();
         jJornada = new javax.swing.JComboBox<>();
         Horario1 = new javax.swing.JLabel();
         atras_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,10 +70,6 @@ Conexion funcion = new Conexion ();
         jPanel1.setBackground(new java.awt.Color(239, 243, 249));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img2/Datos personales.png"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(110, 60, 192, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icon.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -201,14 +197,14 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jfecha);
         jfecha.setBounds(100, 270, 330, 40);
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(550, 370, 370, 280);
+
         Horario.setForeground(new java.awt.Color(105, 111, 121));
         Horario.setText("Jornada");
         jPanel1.add(Horario);
         Horario.setBounds(630, 250, 100, 21);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Ellipse 209.png"))); // NOI18N
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(701, 370, 370, 280);
 
         jLabel12.setForeground(new java.awt.Color(105, 111, 121));
         jLabel12.setText("Sexo");
@@ -251,16 +247,22 @@ Conexion funcion = new Conexion ();
         jPanel1.add(atras_btn);
         atras_btn.setBounds(790, 50, 20, 17);
 
+        jLabel1.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Datos Personales del Infante");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(110, 50, 310, 42);
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 860, 530));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Union.png"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, -70, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 620, 370));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Ellipse 209.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(911, 270, 620, 620));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Union.png"))); // NOI18N
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 710));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 

@@ -34,14 +34,14 @@ Conexion cone;
 Conexion funcion = new Conexion ();
 
     public RegistroDoc() throws Exception {
-   String teset= HttpClientConexion.httpget("https://desarrollos.cl/app-contigo/api/api.service.php?nombreFuncion=obtener_hijos&padre_id=103468261");
+   /*("https://desarrollos.cl/app-contigo/api/api.service.php?nombreFuncion=obtener_hijos&padre_id=103468261");
    JSONParser parser = new JSONParser();    
    JSONObject object = (JSONObject) parser.parse(teset);    
    
    System.out.println(object.get("resultado").toString());
-   ArrayList<String> list = new ArrayList<String>();
+   ArrayList<String> list = new ArrayList<String>();              //FUNCIONA//
    JSONArray jsonArray = (JSONArray) object.get("resultado");
-    
+    */
    
    /*
    JSONArray array = (JSONArray) object.get("resultado");
@@ -99,13 +99,13 @@ Conexion funcion = new Conexion ();
         jcelular = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
         Cedula = new javax.swing.JLabel();
-        Avatar = new javax.swing.JLabel();
         jtipo = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jcontraseña = new javax.swing.JTextField();
         jnombre1 = new javax.swing.JTextField();
         NameComplete1 = new javax.swing.JLabel();
+        Avatar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -146,7 +146,7 @@ Conexion funcion = new Conexion ();
 
         Password.setForeground(new java.awt.Color(105, 111, 121));
         Password.setText("Cree una contraseña*");
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
 
         jcorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 320, 50));
@@ -189,9 +189,6 @@ Conexion funcion = new Conexion ();
         Cedula.setText("RUT*");
         jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Avatars/Avatar_1.png"))); // NOI18N
-        jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
-
         jPanel1.add(jtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, 320, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img3/Img.png"))); // NOI18N
@@ -211,7 +208,7 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, 40));
 
         jcontraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 320, 50));
+        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 320, 50));
 
         jnombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 320, 50));
@@ -219,6 +216,9 @@ Conexion funcion = new Conexion ();
         NameComplete1.setForeground(new java.awt.Color(105, 111, 121));
         NameComplete1.setText("Nombre");
         jPanel1.add(NameComplete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+
+        Avatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Avatars/Avatar_1.png"))); // NOI18N
+        jPanel1.add(Avatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 790, 720));
 
@@ -323,7 +323,7 @@ cone.modificabd("INSERT INTO registro_doctores(id,nombre,apellido,tipo_cita_id,c
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Avatar;
+    private javax.swing.JLabel Avatar1;
     private javax.swing.JButton ButtonSave;
     private javax.swing.JLabel Cedula;
     private javax.swing.JLabel Complete;

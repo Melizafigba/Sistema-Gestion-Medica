@@ -21,7 +21,8 @@ public class Conexion {
        
        try {
            Class.forName("com.mysql.cj.jdbc.Driver");
-           con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contigosw?useTimezone=true&serverTimezone=UTC", "root", "root");
+           /* con = DriverManager.httpget("https://desarrollos.cl/app-contigo/api/api.service.php");*/
+         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/contigosw?useTimezone=true&serverTimezone=UTC", "root", "root");
            stmt = con.createStatement( );
        } catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);

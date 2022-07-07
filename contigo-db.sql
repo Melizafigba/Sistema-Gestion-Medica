@@ -256,7 +256,7 @@ CREATE TABLE `ficha` (
   `fecha_cita` varchar(50) NOT NULL,
   `motivo` varchar(50) NOT NULL,
   `des_diagnostico` varchar(50) NOT NULL,
-  `receta` varchar(50) NOT NULL,
+  `receta` varchar(100) NOT NULL,
   `doctor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -306,7 +306,7 @@ ALTER TABLE `hijos`
 -- Indices de la tabla `registro_doctores`
 --
 ALTER TABLE `registro_doctores`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`doctor_id`),
   ADD KEY `FK_doctores` (`tipo_cita_id`);
 
 --
@@ -353,7 +353,7 @@ ALTER TABLE `inicio_asistente`
 -- AUTO_INCREMENT de la tabla `registro_doctores`
 --
 ALTER TABLE `registro_doctores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `registro_paciente`
