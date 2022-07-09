@@ -27,9 +27,7 @@ DefaultTableModel modelo;
         
     }
 
-    public PDoc() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 public void consulta (String buscar){
     String sql;
     try {
@@ -183,8 +181,8 @@ public void consulta (String buscar){
 
     private void registropacientenuevo(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registropacientenuevo
         
-        RegistroPac Rpac = new RegistroPac();
-        Rpac.setVisible(true);
+        RegistroPac rp = new RegistroPac();
+        rp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registropacientenuevo
 

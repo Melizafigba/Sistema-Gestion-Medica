@@ -99,7 +99,7 @@ public class SplashScreen extends javax.swing.JFrame implements Runnable {
                Thread.sleep(5000);
                this.dispose();
                new Index().setVisible(true);
-               Thread.sleep(10000);
+               Thread.sleep(7000);
                
                tiempo = null;
            } catch (InterruptedException ex) {

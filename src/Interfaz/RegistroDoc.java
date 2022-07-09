@@ -10,6 +10,8 @@ package Interfaz;
  */
 import Metodos_php.Conexion;
 import Metodos_php.HttpClientConexion;
+import java.awt.HeadlessException;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -27,57 +29,56 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
-
 public class RegistroDoc extends javax.swing.JFrame {
-Conexion cone;
-Conexion funcion = new Conexion ();
+
+    Conexion cone;
+    Conexion funcion = new Conexion();
 
     public RegistroDoc() throws Exception {
-   /*("https://desarrollos.cl/app-contigo/api/api.service.php?nombreFuncion=obtener_hijos&padre_id=103468261");
+        /*("https://desarrollos.cl/app-contigo/api/api.service.php?nombreFuncion=obtener_hijos&padre_id=103468261");
    JSONParser parser = new JSONParser();    
    JSONObject object = (JSONObject) parser.parse(teset);    
    
    System.out.println(object.get("resultado").toString());
    ArrayList<String> list = new ArrayList<String>();              //FUNCIONA//
    JSONArray jsonArray = (JSONArray) object.get("resultado");
-    */
-   
-   /*
+         */
+
+ /*
    JSONArray array = (JSONArray) object.get("resultado");
         Iterator<String> iterator = array.iterator();
    while (iterator.hasNext()){
    
    System.out.println(iterator.next());
     }*/
-   
         initComponents();
         cone = new Conexion();
         llenarcombo();
         this.setLocationRelativeTo(null);
     }
-    
-    public void llenarcombo(){
-   
-    try {
-        jtipo.addItem("<<SELECCIONAR>>");
-        ResultSet rs = cone.consultabd("SELECT * FROM tipo_cita");
-        while (rs.next()){
-            jtipo.addItem(rs.getString("nombre")); 
+
+    public void llenarcombo() {
+
+        try {
+            jtipo.addItem("<<SELECCIONAR>>");
+            ResultSet rs = cone.consultabd("SELECT * FROM tipo_cita");
+            while (rs.next()) {
+                jtipo.addItem(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteNuevo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(PacienteNuevo.class.getName()).log(Level.SEVERE, null, ex);
     }
-}
-     public void limpiar(){
-       jnombre1.setText("");
-       japellido.setText("");
-       jcedula.setText("");
-       jcelular.setText("");
-       jcorreo.setText("");
-       jcontraseña.setText("");
-       jtipo.setSelectedIndex(0);     
-   }
+
+    public void limpiar() {
+        jnombre1.setText("");
+        japellido.setText("");
+        jcedula.setText("");
+        jcelular.setText("");
+        jcorreo.setText("");
+        jcontraseña.setText("");
+        jtipo.setSelectedIndex(0);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -106,6 +107,11 @@ Conexion funcion = new Conexion ();
         jnombre1 = new javax.swing.JTextField();
         NameComplete1 = new javax.swing.JLabel();
         Avatar1 = new javax.swing.JLabel();
+        Email1 = new javax.swing.JLabel();
+        jhentrada = new javax.swing.JTextField();
+        Email2 = new javax.swing.JLabel();
+        Email3 = new javax.swing.JLabel();
+        jhsalida = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -146,7 +152,7 @@ Conexion funcion = new Conexion ();
 
         Password.setForeground(new java.awt.Color(105, 111, 121));
         Password.setText("Cree una contraseña*");
-        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
+        jPanel1.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
         jcorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 320, 50));
@@ -208,7 +214,7 @@ Conexion funcion = new Conexion ();
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, -1, 40));
 
         jcontraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 320, 50));
+        jPanel1.add(jcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 320, 50));
 
         jnombre1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(jnombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 320, 50));
@@ -220,6 +226,24 @@ Conexion funcion = new Conexion ();
         Avatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Avatars/Avatar_1.png"))); // NOI18N
         jPanel1.add(Avatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
 
+        Email1.setForeground(new java.awt.Color(105, 111, 121));
+        Email1.setText("Entrada:");
+        jPanel1.add(Email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 70, 30));
+
+        jhentrada.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jhentrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 90, 30));
+
+        Email2.setForeground(new java.awt.Color(105, 111, 121));
+        Email2.setText("Jornada Laboral del Mes : ");
+        jPanel1.add(Email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+
+        Email3.setForeground(new java.awt.Color(105, 111, 121));
+        Email3.setText("Salida :");
+        jPanel1.add(Email3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, 80, 30));
+
+        jhsalida.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jhsalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 90, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 790, 720));
 
         pack();
@@ -229,28 +253,46 @@ Conexion funcion = new Conexion ();
         char caracter = evt.getKeyChar();
 
         // Verificar si la tecla pulsada no es un digito
-        if(((caracter < '0') ||
-            (caracter > '9')) &&
-        (caracter != '\b' /*corresponde a BACK_SPACE*/))
-        {
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }//GEN-LAST:event_jcedulaKeyTyped
 
     private void jcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jcelularKeyTyped
-       char caracter = evt.getKeyChar();
+        char caracter = evt.getKeyChar();
 
         // Verificar si la tecla pulsada no es un digito
-        if(((caracter < '0') ||
-            (caracter > '9')) &&
-        (caracter != '\b' /*corresponde a BACK_SPACE*/))
-        {
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }//GEN-LAST:event_jcelularKeyTyped
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSaveActionPerformed
-    try {
+        try {
+            /*
+            String url = "jdbc:mysql://https://desarrollos.cl:3306/desacl_app-contigo";
+            String usuario = "desacl";
+            String pass = "f8YZT&PbVRwh";
+            Connection cn = DriverManager.getConnection("url", "usuario", "pass");
+            PreparedStatement pst = cn.prepareStatement("select  * from registro_doctores where id = ?");
+
+            pst.setString(1, ButtonSave.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                jnombre1.setText(rs.getString("nombre"));
+                japellido.setText(rs.getString("apellido"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Registro NO Finalizado");
+            }catch (HeadlessException | SQLException ex) {
+                    System.out.println("Error:" + ex);
+                    }
+*/
+            
         int idtipo = 0;
 //        Date date = jfecha.getDate();
 //        long d = date.getTime();
@@ -259,31 +301,31 @@ ResultSet rs = cone.consultabd("SELECT id FROM tipo_cita WHERE nombre = '"+jtipo
 while (rs.next()){
     idtipo = rs.getInt(1);
 }
-cone.modificabd("INSERT INTO registro_doctores(id,nombre,apellido,tipo_cita_id,cedula,celular,correo,contraseña) "
-        + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
+cone.modificabd("INSERT INTO registro_doctores(doctor_id,nombre,apellido,tipo_cita_id,cedula,celular,correo,h_entrada, h_salida,contraseña) "
+        + "VALUES (null,'"+jnombre1.getText()+"','"+japellido.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jhentrada.getText()+"','"+jhsalida.getText()+"','"+jcontraseña.getText()+"')");
     JOptionPane.showMessageDialog(null,"Registro Finalizado");
     } catch (SQLException ex) {
         Logger.getLogger(RegistroDoc.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        
         limpiar();
     }//GEN-LAST:event_ButtonSaveActionPerformed
-
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
-    Administrador admi = new Administrador();
-    admi.setVisible(true);
-    this.setVisible(false);
-        
+
+        Administrador admi = new Administrador();
+        admi.setVisible(true);
+        this.setVisible(false);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void contraseña_random() {
-    
+
         String contraseña = " ";
         String contraseña2 = " ";
-        contraseña = UUID.randomUUID().toString().toUpperCase().substring(0,5);
-        contraseña2 = UUID.randomUUID().toString().toLowerCase().substring(0,5);
+        contraseña = UUID.randomUUID().toString().toUpperCase().substring(0, 5);
+        contraseña2 = UUID.randomUUID().toString().toLowerCase().substring(0, 5);
         jcontraseña.setText(contraseña + contraseña2);
-        
+
     }
 
 //
@@ -329,6 +371,9 @@ cone.modificabd("INSERT INTO registro_doctores(id,nombre,apellido,tipo_cita_id,c
     private javax.swing.JLabel Complete;
     private javax.swing.JLabel Direccion;
     private javax.swing.JLabel Email;
+    private javax.swing.JLabel Email1;
+    private javax.swing.JLabel Email2;
+    private javax.swing.JLabel Email3;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel FondoSave;
     private javax.swing.JLabel Name;
@@ -344,6 +389,8 @@ cone.modificabd("INSERT INTO registro_doctores(id,nombre,apellido,tipo_cita_id,c
     private javax.swing.JTextField jcelular;
     private javax.swing.JTextField jcontraseña;
     private javax.swing.JTextField jcorreo;
+    private javax.swing.JTextField jhentrada;
+    private javax.swing.JTextField jhsalida;
     private javax.swing.JTextField jnombre1;
     private javax.swing.JComboBox<String> jtipo;
     // End of variables declaration//GEN-END:variables

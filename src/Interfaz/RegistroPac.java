@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package Interfaz;
 
 /**
@@ -21,11 +18,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
-
-
 public class RegistroPac extends javax.swing.JFrame {
-Conexion cone;
-Conexion funcion = new Conexion ();
+
+    Conexion cone;
+    Conexion funcion = new Conexion();
 
     public RegistroPac() {
         initComponents();
@@ -33,28 +29,35 @@ Conexion funcion = new Conexion ();
         llenarcombo();
         this.setLocationRelativeTo(null);
     }
+
     
-    public void llenarcombo(){
+
    
-    try {
-        isexo.addItem("<<SELECCIONAR>>");
-        ResultSet rs = cone.consultabd("SELECT * FROM tipo_sexo");
-        while (rs.next()){
-            isexo.addItem(rs.getString("nombre")); 
+
+ 
+
+    public void llenarcombo() {
+
+        try {
+            isexo.addItem("<<SELECCIONAR>>");
+            ResultSet rs = cone.consultabd("SELECT * FROM tipo_sexo");
+            while (rs.next()) {
+                isexo.addItem(rs.getString("nombre"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteNuevo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } catch (SQLException ex) {
-        Logger.getLogger(PacienteNuevo.class.getName()).log(Level.SEVERE, null, ex);
     }
-}
-     public void limpiar(){
-       jnombre.setText("");
-       japellido.setText("");
-       jcedula.setText("");
-       jcelular.setText("");
-       jcorreo.setText("");
-       isexo.setSelectedIndex(0);
-       jcontraseña.setText("");     
-   }
+
+    public void limpiar() {
+        jnombre.setText("");
+        japellido.setText("");
+        jcedula.setText("");
+        jcelular.setText("");
+        jcorreo.setText("");
+        isexo.setSelectedIndex(0);
+        jcontraseña.setText("");
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -221,44 +224,40 @@ Conexion funcion = new Conexion ();
         char caracter = evt.getKeyChar();
 
         // Verificar si la tecla pulsada no es un digito
-        if(((caracter < '0') ||
-            (caracter > '9')) &&
-        (caracter != '\b' /*corresponde a BACK_SPACE*/))
-        {
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }//GEN-LAST:event_jcedulaKeyTyped
 
     private void jcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jcelularKeyTyped
-       char caracter = evt.getKeyChar();
+        char caracter = evt.getKeyChar();
 
         // Verificar si la tecla pulsada no es un digito
-        if(((caracter < '0') ||
-            (caracter > '9')) &&
-        (caracter != '\b' /*corresponde a BACK_SPACE*/))
-        {
+        if (((caracter < '0')
+                || (caracter > '9'))
+                && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
             evt.consume();  // ignorar el evento de teclado
         }
     }//GEN-LAST:event_jcelularKeyTyped
 
     private void ButtonSave(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSave
-    try {
-        int idtipo = 0;
-//        Date date = jfecha.getDate();
-//        long d = date.getTime();
-//        Date fecha = new Date(d);
-ResultSet rs = cone.consultabd("SELECT id FROM tipo_sexo  WHERE nombre  = '"+isexo.getSelectedItem()+"'");
-while (rs.next()){
-    idtipo = rs.getInt(1);
-}
-cone.modificabd("INSERT INTO registro_tutor(id,nombre,apellido,tipo_sexo_id,cedula,movil,correo,contraseña) "
-        + "VALUES (null,'"+jnombre.getText()+"','"+japellido.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+jcontraseña.getText()+"')");
-    JOptionPane.showMessageDialog(null,"Registro Finalizado");
-    } catch (SQLException ex) {
-        Logger.getLogger(RegistroDoc.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        try {
+            int idtipo = 0;
+            ResultSet rs = cone.consultabd("SELECT id FROM tipo_sexo  WHERE nombre  = '" + isexo.getSelectedItem() + "'");
+            while (rs.next()) {
+                idtipo = rs.getInt(1);
+            }
+            cone.modificabd("INSERT INTO registro_tutor(id,nombre,apellido,tipo_sexo_id,cedula,movil,correo,contraseña) "
+                    + "VALUES (null,'" + jnombre.getText() + "','" + japellido.getText() + "'," + idtipo + ",'" + jcedula.getText() + "','" + jcelular.getText() + "','" + jcorreo.getText() + "','" + jcontraseña.getText() + "')");
+            JOptionPane.showMessageDialog(null, "Registro Finalizado");
+        } catch (SQLException ex) {
+            Logger.getLogger(RegistroPac.class.getName()).log(Level.SEVERE, null, ex);
+        }
         limpiar();
     }
+
     /*
 cone.modificabd("INSERT INTO registro_paciente(id,nombre,tipo_sexo_id,cedula,celular,correo,contraseña) "
         + "VALUES (null,'"+jnombre.getText()+"',"+idtipo+",'"+jcedula.getText()+"','"+jcelular.getText()+"','"+jcorreo.getText()+"','"+isexo.getSelectedItem()+"','"+jcontraseña.getText()+"')");
@@ -270,9 +269,9 @@ cone.modificabd("INSERT INTO registro_paciente(id,nombre,tipo_sexo_id,cedula,cel
     }//GEN-LAST:event_ButtonSave
 */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-InicioAsistent InAsis = new InicioAsistent();
-InAsis.setVisible(true);
-this.setVisible(false);
+        InicioAsistent InAsis = new InicioAsistent();
+        InAsis.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void isexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isexoActionPerformed
@@ -280,7 +279,7 @@ this.setVisible(false);
     }//GEN-LAST:event_isexoActionPerformed
 
     private void jcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcedulaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jcedulaActionPerformed
 
     private void jnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jnombreActionPerformed
@@ -288,13 +287,13 @@ this.setVisible(false);
     }//GEN-LAST:event_jnombreActionPerformed
 
     public void contraseña_random() {
-    
+
         String contraseña = " ";
         String contraseña2 = " ";
-        contraseña = UUID.randomUUID().toString().toUpperCase().substring(0,5);
-        contraseña2 = UUID.randomUUID().toString().toLowerCase().substring(0,5);
+        contraseña = UUID.randomUUID().toString().toUpperCase().substring(0, 5);
+        contraseña2 = UUID.randomUUID().toString().toLowerCase().substring(0, 5);
         jcontraseña.setText(contraseña + contraseña2);
-        
+
     }
 
 //
@@ -332,6 +331,7 @@ this.setVisible(false);
 //            }
 //        });
 //    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Avatar;

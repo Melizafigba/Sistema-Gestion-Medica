@@ -21,34 +21,34 @@ public class VerFicha extends javax.swing.JFrame {
     Conexion cone;
     DefaultTableModel modelo;
 
-    public VerFicha(String nombre) {
+    public VerFicha() {
         cone = new Conexion();
         initComponents();
         this.setLocationRelativeTo(null);
-        jLabel18.setText(nombre);
+
         consulta("");
 
     }
 
-    VerFicha() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     public void consulta(String buscar) {
         String sql;
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"ID", "NOMBRE ","APELLIDO", " SEXO ", "RUT ", "FECHA NAC", " ALERGICO ", "PESO","ESTATURA","RUT TUTOR"};
+            String[] titulos = {"N°-","NOMBRE", "APELLIDO","SEXO", "RUT ", "FECHA NAC", " ALERGICO ", "PESO", "ESTATURA","RUT TUTOR"};
             modelo = new DefaultTableModel(null, titulos);
-            ResultSet rs = cone.consultabd("SELECT * FROM hijos WHERE CONCAT (nombre,tipo_sexo_id,alergico,diagnostico,fecha_cita, padre_id) LIKE '%" + buscar + "%' ");
+            ResultSet rs = cone.consultabd("SELECT * FROM hijos WHERE CONCAT (id,nombre, apellido, tipo_sexo_id, rut, fecha_nac, alergico, peso, estatura, padre_id) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
             while (rs.next()) {
-                datos[0] = rs.getString("nombre");
-                datos[1] = rs.getString("sexo");
-                datos[2] = rs.getString("alergico");
-                datos[3] = rs.getString("diagnostico");
-                datos[4] = rs.getString("fecha_cita");
-                datos[5] = rs.getString("rut del padre");
+                datos[0] = rs.getString("id");
+                datos[1] = rs.getString("nombre");
+                datos[2] = rs.getString("apellido");
+                datos[3] = rs.getString("tipo_sexo_id");
+                datos[4] = rs.getString("rut");
+                datos[5] = rs.getString("fecha_nac");
+                datos[6] = rs.getString("alergico");
+                datos[7] = rs.getString("peso");
+                datos[8] = rs.getString("estatura");
+                datos[9] = rs.getString("padre_id");
 
                 ResultSet rs2 = cone2.consultabd("SELECT nombre FROM tipo_sexo WHERE id = " + rs.getString("tipo_sexo_id") + "");
                 if (rs2.next()) {
@@ -159,8 +159,8 @@ public class VerFicha extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Ficha del Infante");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 220, -1));
+        jLabel4.setText("Ficha de Registro Infantil");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 310, -1));
 
         Avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/niños.png"))); // NOI18N
         jPanel1.add(Avatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, -40, 470, 310));
@@ -182,14 +182,9 @@ public class VerFicha extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarKeyReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        RegistroDoc registroDoc;
-        try {
-            registroDoc = new RegistroDoc();
-        registroDoc.setVisible(true);
-        } catch (Exception ex) {
-            Logger.getLogger(VerFicha.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.setVisible(false);
+       AsisModHijos amh = new AsisModHijos();
+       amh.setVisible(true);
+       this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

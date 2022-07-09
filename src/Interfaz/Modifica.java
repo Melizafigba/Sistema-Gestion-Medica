@@ -40,14 +40,16 @@ public class Modifica extends javax.swing.JFrame {
 
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"nombre", "apellido", "cedula","","", "fecha_cita", "horario", "jornada", "tipo_cita", "sexo"};
+            String[] titulos = {"Nombre", "Apellido", "RUT","CORREO","CELULAR","FECHA CITA", "HORA", "JORNADA", "ESPECIALIDAD", "SEXO"};
             modelo = new DefaultTableModel(null, titulos);
-            ResultSet rs = cone.consultabd("SELECT * FROM ordenes_citas WHERE CONCAT (cedula, nombre,apellido, tipo_cita_id, horario,jornada) LIKE '%" + buscar + "%' ");
+            ResultSet rs = cone.consultabd("SELECT * FROM ordenes_citas WHERE CONCAT (nombre,apellido,cedula, correo, celular, fecha_cita, horario, jornada, tipo_cita_id, sexo) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
             while (rs.next()) {
                 datos[0] = rs.getString("nombre");
                 datos[1] = rs.getString("apellido");
                 datos[2] = rs.getString("cedula");
+                datos[3] = rs.getString("correo");
+                datos[4] = rs.getString("celular");
                 datos[5] = rs.getString("fecha_cita");
                 datos[6] = rs.getString("horario");
                 datos[7] = rs.getString("jornada");

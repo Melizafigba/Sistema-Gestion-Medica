@@ -20,25 +20,24 @@ public class PacienteDoctor extends javax.swing.JFrame {
     Conexion cone;
     DefaultTableModel modelo;
 
-    public PacienteDoctor(String nombre) {
+    public PacienteDoctor(String nombre, String apellido) {
         cone = new Conexion();
         initComponents();
         this.setLocationRelativeTo(null);
-        jLabel18.setText(nombre);
-        
+        jLabelname.setText(nombre);
+        jLabelAp.setText(apellido);
+
         consulta("");
 
     }
 
-    public PacienteDoctor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     public void consulta(String buscar) {
         String sql;
         try {
             Conexion cone2 = new Conexion();
-            String[] titulos = {"ID", " NOMBRE "," RUT ", "MOVIL", " CORREO "};
+            String[] titulos = {"ID", " NOMBRE ", "APELLIDO", " RUT ", "MOVIL", " CORREO "};
             modelo = new DefaultTableModel(null, titulos);
             ResultSet rs = cone.consultabd("SELECT * FROM registro_tutor WHERE CONCAT (id,cedula,nombre,apellido, tipo_sexo_id) LIKE '%" + buscar + "%' ");
             String[] datos = new String[10];
@@ -67,25 +66,53 @@ public class PacienteDoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         Avatar = new javax.swing.JLabel();
         buscar = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         iDatos = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabelAp = new javax.swing.JLabel();
+        jLabelname = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        registropacientenuevo = new javax.swing.JMenu();
+        CrearFicha = new javax.swing.JMenu();
+        AtencionMedica = new javax.swing.JMenu();
+        AtencionMedica1 = new javax.swing.JMenu();
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
+        jMenu3.setText("jMenu3");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
+
+        jMenu6.setText("jMenu6");
+
+        jMenu7.setText("jMenu7");
+
+        jMenu8.setText("jMenu8");
+
+        jMenu9.setText("jMenu9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Data.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 720));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,10 +138,6 @@ public class PacienteDoctor extends javax.swing.JFrame {
 
         jLabel17.setText("Busqueda");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 110, 60, 30));
-
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(105, 111, 121));
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, 250, 30));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/1.png"))); // NOI18N
         jButton1.setBorder(null);
@@ -156,28 +179,94 @@ public class PacienteDoctor extends javax.swing.JFrame {
                 registropacientenuevo(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 134, 190, -1));
-
-        jLabel3.setBackground(new java.awt.Color(0, 102, 153));
-        jLabel3.setFont(new java.awt.Font("Dubai", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel3.setOpaque(true);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 200, 40));
-
-        jButton2.setText("Crear Ficha");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 149, -1, 20));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 190, -1));
 
         jLabel4.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Datos de los Tutores");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 220, -1));
 
+        jLabelAp.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelAp.setForeground(new java.awt.Color(105, 111, 121));
+        jPanel1.add(jLabelAp, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, 110, 30));
+
+        jLabelname.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabelname.setForeground(new java.awt.Color(105, 111, 121));
+        jPanel1.add(jLabelname, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 110, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 830, 720));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Data.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 690));
+
+        jMenuBar1.setBackground(new java.awt.Color(0, 153, 153));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setOpaque(true);
+
+        registropacientenuevo.setBackground(new java.awt.Color(0, 153, 153));
+        registropacientenuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        registropacientenuevo.setForeground(new java.awt.Color(255, 255, 255));
+        registropacientenuevo.setText("  Registra Nuevo Tutor  ");
+        registropacientenuevo.setFocusPainted(true);
+        registropacientenuevo.setFocusable(false);
+        registropacientenuevo.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        registropacientenuevo.setOpaque(true);
+        registropacientenuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registropacientenuevoMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                registropacientenuevoMousePressed(evt);
+            }
+        });
+        jMenuBar1.add(registropacientenuevo);
+
+        CrearFicha.setBackground(new java.awt.Color(0, 153, 153));
+        CrearFicha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CrearFicha.setForeground(new java.awt.Color(255, 255, 255));
+        CrearFicha.setText("  Crear Ficha del Infante  ");
+        CrearFicha.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        CrearFicha.setHideActionText(true);
+        CrearFicha.setOpaque(true);
+        CrearFicha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearFichaMouseClicked(evt);
+            }
+        });
+        CrearFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreaFichaActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(CrearFicha);
+
+        AtencionMedica.setBackground(new java.awt.Color(0, 153, 153));
+        AtencionMedica.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AtencionMedica.setForeground(new java.awt.Color(255, 255, 255));
+        AtencionMedica.setText("  Atencion Médica  ");
+        AtencionMedica.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        AtencionMedica.setOpaque(true);
+        AtencionMedica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AtencionMedicaMouseClicked(evt);
+            }
+        });
+        AtencionMedica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtencionMedicaActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(AtencionMedica);
+
+        AtencionMedica1.setBackground(new java.awt.Color(0, 153, 153));
+        AtencionMedica1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AtencionMedica1.setForeground(new java.awt.Color(255, 255, 255));
+        AtencionMedica1.setText("                                                                                                                                                                                        ");
+        AtencionMedica1.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        AtencionMedica1.setOpaque(true);
+        jMenuBar1.add(AtencionMedica1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -199,16 +288,44 @@ public class PacienteDoctor extends javax.swing.JFrame {
 
     private void registropacientenuevo(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registropacientenuevo
 
-        RegistroPac Rpac = new RegistroPac();
-        Rpac.setVisible(true);
+    RegistroPac Rp = new RegistroPac();
+        Rp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registropacientenuevo
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CrearFicha cficha = new CrearFicha();
-        cficha.setVisible(true);
+    private void CreaFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreaFichaActionPerformed
+       
+    }//GEN-LAST:event_CreaFichaActionPerformed
+
+    private void AtencionMedicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtencionMedicaActionPerformed
+        AtencionMedica AMedica = new AtencionMedica();
+        AMedica.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_AtencionMedicaActionPerformed
+
+    private void registropacientenuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registropacientenuevoMouseClicked
+        RegistroPac Rp = new RegistroPac();
+        Rp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registropacientenuevoMouseClicked
+
+    private void CrearFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearFichaMouseClicked
+      CrearFicha cf = new CrearFicha();
+      cf.setVisible(true);
+      this.setVisible(false);
+    }//GEN-LAST:event_CrearFichaMouseClicked
+
+    private void AtencionMedicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AtencionMedicaMouseClicked
+        AtencionMedica AMedica = new AtencionMedica();
+        AMedica.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AtencionMedicaMouseClicked
+
+    private void registropacientenuevoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registropacientenuevoMousePressed
+        RegistroPac Rp = new RegistroPac();
+        Rp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registropacientenuevoMousePressed
 
 //    * @param args the command line arguments
 //     */
@@ -245,18 +362,31 @@ public class PacienteDoctor extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu AtencionMedica;
+    private javax.swing.JMenu AtencionMedica1;
     private javax.swing.JLabel Avatar;
+    private javax.swing.JMenu CrearFicha;
     private javax.swing.JTextField buscar;
     public javax.swing.JTable iDatos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelAp;
+    private javax.swing.JLabel jLabelname;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenu registropacientenuevo;
     // End of variables declaration//GEN-END:variables
 }

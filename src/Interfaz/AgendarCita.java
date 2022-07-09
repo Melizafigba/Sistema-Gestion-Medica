@@ -359,7 +359,7 @@ Conexion funcion = new Conexion ();
         while (rs.next()){
             idtipo = rs.getInt(1);
         }
-        cone.modificabd("INSERT INTO ordenes_citas(nombre,apellido,cedula,celular,correo,fecha_cita,horario,Jornada,tipo_cita_id,Sexo) "
+        cone.modificabd("INSERT INTO ordenes_citas(nombre,apellido,cedula,celular,correo,fecha_cita,horario,Jornada,tipo_cita_id,Sexo)"
                 + "VALUES ('"+jnombre.getText()+"','"+japellido.getText()+"','"+jcedula.getText()+"','"+jcelular.getText()+"','"
                 +jcorreo.getText()+"','"+funcion.getFecha(jfecha)+"','"+jhorario.getText()+"','"+jJornada.getSelectedItem()+"', "+idtipo+",'"+jSexo.getSelectedItem()+"') ");
         JOptionPane.showMessageDialog(null, " El Registro Fue Exitoso ");

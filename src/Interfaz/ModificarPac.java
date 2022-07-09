@@ -86,22 +86,23 @@ public class ModificarPac extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Atras = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         iDatos1 = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
         Ilustracion = new javax.swing.JLabel();
         Icon2 = new javax.swing.JLabel();
         buscar1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jcedula = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jcorreo = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jActualizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        CrearFicha = new javax.swing.JMenu();
+        CrearFicha1 = new javax.swing.JMenu();
+        Salir = new javax.swing.JMenu();
 
         jeditar.setText("Editar");
         jeditar.addActionListener(new java.awt.event.ActionListener() {
@@ -143,10 +144,6 @@ public class ModificarPac extends javax.swing.JFrame {
         });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 26, 50, 20));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageNew/Datos de los pacientes.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-
         iDatos1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         iDatos1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -182,22 +179,6 @@ public class ModificarPac extends javax.swing.JFrame {
             }
         });
         jPanel1.add(buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 230, 30));
-
-        jButton1.setFont(new java.awt.Font("Dubai", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Salir");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Salir_btn(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 120, 30));
-
-        jLabel3.setBackground(new java.awt.Color(0, 153, 204));
-        jLabel3.setOpaque(true);
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 120, 30));
 
         jcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,15 +228,53 @@ public class ModificarPac extends javax.swing.JFrame {
         jLabel4.setOpaque(true);
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 120, 30));
 
-        jButton2.setText("Crear Ficha");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, 20));
+        jLabel5.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Modifica Datos de Tutores");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 280, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 820, 720));
+
+        CrearFicha.setBackground(new java.awt.Color(0, 153, 153));
+        CrearFicha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CrearFicha.setForeground(new java.awt.Color(255, 255, 255));
+        CrearFicha.setText("  Ingresar Datos del Infante  ");
+        CrearFicha.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        CrearFicha.setOpaque(true);
+        CrearFicha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearFichaMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(CrearFicha);
+
+        CrearFicha1.setBackground(new java.awt.Color(0, 153, 153));
+        CrearFicha1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CrearFicha1.setForeground(new java.awt.Color(255, 255, 255));
+        CrearFicha1.setText("                                                                                                                                                                                                                                                        ");
+        CrearFicha1.setFont(new java.awt.Font("Dubai", 0, 18)); // NOI18N
+        CrearFicha1.setOpaque(true);
+        CrearFicha1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearFicha1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(CrearFicha1);
+
+        Salir.setBackground(new java.awt.Color(102, 0, 51));
+        Salir.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Salir.setForeground(new java.awt.Color(255, 255, 255));
+        Salir.setText("  SALIR ->  ");
+        Salir.setFont(new java.awt.Font("Dubai", 1, 18)); // NOI18N
+        Salir.setOpaque(true);
+        Salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SalirMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Salir);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,12 +311,6 @@ public class ModificarPac extends javax.swing.JFrame {
         consulta(buscar1.getText());
     }//GEN-LAST:event_Buscar1KeyReleased
 
-    private void Salir_btn(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salir_btn
-        Doctores drs = new Doctores();
-        drs.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_Salir_btn
-
     private void jcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcedulaActionPerformed
@@ -326,11 +339,21 @@ public class ModificarPac extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jActualizar
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CrearFichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearFichaMouseClicked
         CrearFicha cficha = new CrearFicha();
         cficha.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CrearFichaMouseClicked
+
+    private void SalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalirMouseClicked
+        Doctores drs = new Doctores();
+        drs.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SalirMouseClicked
+
+    private void CrearFicha1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearFicha1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CrearFicha1MouseClicked
 
 //    /**
 //     * @param args the command line arguments
@@ -370,20 +393,21 @@ public class ModificarPac extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
+    private javax.swing.JMenu CrearFicha;
+    private javax.swing.JMenu CrearFicha1;
     private javax.swing.JLabel Icon2;
     private javax.swing.JLabel Ilustracion;
+    private javax.swing.JMenu Salir;
     private javax.swing.JTextField buscar1;
     private javax.swing.JTable iDatos1;
     private javax.swing.JButton jActualizar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane2;
