@@ -16,7 +16,7 @@ import java.net.URL;
 public class HttpClientConexion {
     
 
-//this.httpget("https://api.chucknorris.io/jokes/random");
+
     
 public static String httpget(String testurl) throws Exception{
         StringBuilder result = new StringBuilder();
